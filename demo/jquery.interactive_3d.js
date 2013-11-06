@@ -20,7 +20,8 @@
     entrance: true,
     preloadImages: true,
     touchSupport: true,
-    loading: "Loading.."
+    loading: "Loading..",
+    autoPlay: false
 	};
 	
 	function touchHandler(event) {
@@ -123,7 +124,7 @@
         el = $(this);
     el.find(" > img").addClass("main-frame");  
     el.drags(settings);
-    if (settings.entrance == true) {
+    if (settings.entrance == true && settings.autoPlay == false ) {
       var cur_frame = el.find("img.main-frame").attr("src").split('_')[1].split('.')[0];
       
       var x = 0,
@@ -151,12 +152,17 @@
         }
         
         if (x++ < (settings.frames - 1)) {
-            setTimeout(animate_3d,  (x * 1.5));
+            if (settings.autoPlay != false) {
+              setTimeout(animate_3d,  0);
+            } else {
+              setTimeout(animate_3d,  (x * 1.5));
+            }
+            
         }
       }
       
       
-      if (settings.loading == false) animate_3d(); 
+      if (settings.loading == false && settings.autoPlay == false) animate_3d(); 
     }
     
     if (settings.touchSupport == true) {
@@ -189,15 +195,33 @@
                 if (!count) {
                     el.find(".main-frame").css("visibility", "visible");
                     el.find(".loading_3d").remove();
-                    animate_3d();
+                    if (settings.autoPlay == false) animate_3d();
                 }
             });
         } else {
           el.find(".main-frame").css("visibility", "visible");
           el.find(".loading_3d").remove();
-          animate_3d();
+          if (settings.autoPlay == false) animate_3d();
         }
       }
+      
+    }
+    
+    if (settings.autoPlay != false) {
+      
+      function intervalTrigger() {
+        return window.setInterval( function() {
+          animate_3d();
+        }, settings.autoPlay );
+      };
+      
+      var id = intervalTrigger();
+      
+      el.mouseenter(function() {
+        window.clearInterval(id);
+      }).mouseleave(function() {
+        id = intervalTrigger();
+      });
       
     }
     

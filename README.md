@@ -36,7 +36,8 @@ Now call the function and that should be it.
     entrance: true, // Entrance Animation. Toggle this to false to turn it off. The default value is true.
     preloadImages: true, // Let the script preload all the frames on initial load. Toggle this to false to turn it off. The default value is true.
     touchSupport: true, // The script support touch events for mobile phones. If this interferes with your website behaviour, you can toggle this to false. The default value is true.
-    loading: "Loading.." // This only applies if preloadImages is true. This option let you show a loading indicator while the script is preloading the images. The option accepts HTML. Toggle this to false to turn this off. The default value is "Loading.."
+    loading: "Loading..", // This only applies if preloadImages is true. This option let you show a loading indicator while the script is preloading the images. The option accepts HTML. Toggle this to false to turn this off. The default value is "Loading.."
+    autoPlay: false // This option will superseded entrance option. The 3D object will start rotating automatically if autoPlay is not false. This option accepts the speed of the rotation in milliseconds delay. The default value is false.
   });
 ````
 
