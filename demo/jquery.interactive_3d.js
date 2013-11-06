@@ -1,5 +1,5 @@
 /* ===========================================================
- * jquery.interactive_3d.js v1
+ * jquery.interactive_3d.js v1.1
  * ===========================================================
  * Copyright 2013 Pete Rojwongsuriya.
  * http://www.thepetedesign.com
@@ -122,46 +122,44 @@
   $.fn.interactive_3d = function(options){
     var settings = $.extend({}, defaults, options),
         el = $(this);
-    el.find(" > img").addClass("main-frame");  
-    el.drags(settings);
-    if (settings.entrance == true && settings.autoPlay == false ) {
-      var cur_frame = el.find("img.main-frame").attr("src").split('_')[1].split('.')[0];
-      
-      var x = 0,
-          step = 100 / parseInt(settings.frames);
-
-      function animate_3d() {
-        var src = el.find("img.main-frame").attr("src");
-        el.find("img.main-frame").css("opacity", (x * step)/100);
-        if(cur_frame < settings.frames) {
-          setTimeout(function() {
-            var img_name = src.split('/')[src.split('/').length-1]
-            var directory = src.split('/').slice(0, -1).join("/")
-            var new_frame = directory + "/" + img_name.split('_')[0] + "_" + (parseInt(cur_frame) + 1) + "." + img_name.split('.')[1]
-            el.find("img.main-frame").attr("src", new_frame)
-            cur_frame = parseInt(cur_frame) + 1;
-          },settings.speed)
-        } else {
-          setTimeout(function() {
-            var img_name = src.split('/')[src.split('/').length-1]
-            var directory = src.split('/').slice(0, -1).join("/")
-            var new_frame = directory + "/" + img_name.split('_')[0] + "_" + 1 + "." + img_name.split('.')[1]
-            el.find("img.main-frame").attr("src", new_frame)
-            cur_frame = 1;
-          },settings.speed)
-        }
-        
-        if (x++ < (settings.frames - 1)) {
-            if (settings.autoPlay != false) {
-              setTimeout(animate_3d,  0);
-            } else {
-              setTimeout(animate_3d,  (x * 1.5));
-            }
-            
-        }
+        el.find(" > img").addClass("main-frame");  
+        el.drags(settings), 
+        x = 0,
+        step = 100 / parseInt(settings.frames),
+        cur_frame = el.find("img.main-frame").attr("src").split('_')[1].split('.')[0];
+    
+    function animate_3d() {
+      var src = el.find("img.main-frame").attr("src");
+      el.find("img.main-frame").css("opacity", (x * step)/100);
+      if(cur_frame < settings.frames) {
+        setTimeout(function() {
+          var img_name = src.split('/')[src.split('/').length-1]
+          var directory = src.split('/').slice(0, -1).join("/")
+          var new_frame = directory + "/" + img_name.split('_')[0] + "_" + (parseInt(cur_frame) + 1) + "." + img_name.split('.')[1]
+          el.find("img.main-frame").attr("src", new_frame)
+          cur_frame = parseInt(cur_frame) + 1;
+        },settings.speed)
+      } else {
+        setTimeout(function() {
+          var img_name = src.split('/')[src.split('/').length-1]
+          var directory = src.split('/').slice(0, -1).join("/")
+          var new_frame = directory + "/" + img_name.split('_')[0] + "_" + 1 + "." + img_name.split('.')[1]
+          el.find("img.main-frame").attr("src", new_frame)
+          cur_frame = 1;
+        },settings.speed)
       }
-      
-      
+    
+      if (x++ < (settings.frames - 1)) {
+          if (settings.autoPlay != false) {
+            setTimeout(animate_3d,  0);
+          } else {
+            setTimeout(animate_3d,  (x * 1.5));
+          }
+    
+      }
+    }
+        
+    if (settings.entrance == true && settings.autoPlay == false ) {
       if (settings.loading == false && settings.autoPlay == false) animate_3d(); 
     }
     
