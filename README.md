@@ -8,7 +8,7 @@ Created by [Pete R.](http://www.thepetedesign.com), Founder of [BucketListly](ht
 [View demo](http://www.thepetedesign.com/demos/interactive_3d.html)
 
 ## Compatibility
-Modern browsers such as Chrome, Firefox, and Safari on both desktop and smartphones have been tested. Not tested on IE.
+Modern browsers such as Chrome, Firefox, and Safari on both desktop and smartphones have been tested. Not test on IE.
 
 ## Basic Usage
 jQuery Interactive 3D let you create a 3D interactive object using several images as frames allowing the user to drag around and manipulate the image. This plugin is perfect for showcasing your product on the web.
