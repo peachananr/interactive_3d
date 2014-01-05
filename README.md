@@ -48,3 +48,4 @@ If you want to see more of my plugins, visit [The Pete Design](http://www.thepet
 ## Other Resources
 - [Chris Coyier's drag and drop script](http://css-tricks.com/snippets/jquery/draggable-without-jquery-ui/)
 - [TouchHandler script](http://stackoverflow.com/questions/5186441/javascript-drag-and-drop-for-touch-devices)
+- [Tutorial](http://www.onextrapixel.com/2013/11/26/create-an-awesome-3d-interactive-object-using-only-images-and-jquery/)
