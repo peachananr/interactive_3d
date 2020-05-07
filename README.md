@@ -2,10 +2,8 @@
 Create a 3D interactive object using images and one simple JS call
 Created by [Pete R.](http://www.thepetedesign.com), Founder of [BucketListly](http://www.bucketlistly.com)
 
-[![Interactive 3D](http://www.thepetedesign.com/images/interactive_3d.png "Interactive 3D")](http://www.thepetedesign.com/demos/interactive_3d.html)
-
 ## Demo
-[View demo](http://www.thepetedesign.com/demos/interactive_3d.html)
+[View demo](http://peachananr.github.io/interactive_3d/demo/interactive_3d.html)
 
 ## Compatibility
 Modern browsers such as Chrome, Firefox, and Safari on both desktop and smartphones have been tested. Have not test on IE.
